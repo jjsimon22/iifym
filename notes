@@ -1,0 +1,13 @@
+const res = await fetch("https://docs.google.com/spreadsheets/d/1noRn2LRpqw4TNiTag-nSmNzKu0U2F-pAwy8loIfynqU/gviz/tq?tqx=out:csv&sheet=sheet1");
+                const data = await res.text();
+                const datarows = data.replace(/\"/g,"").split("\n");
+                for (let i=1; i<datarows.length; i++) {
+                    const [
+                        name,
+                        cal,
+                        carb,
+                        fat,
+                        prot,
+                        category,
+                        page,
+                    ] = datarows[i].split(",");
